@@ -1,5 +1,10 @@
 # 🏆 Simple Leaderboard Pro
 
+<p align="center">
+  <a href="https://ko-fi.com/suzutaku" target="_blank"><img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="Support on Ko-fi" height="40"></a>
+  <a href="https://buymeacoffee.com/suzutaku" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="40"></a>
+</p>
+
 **[ 日本語 (Japanese) / English ]**
 
 ---
@@ -37,6 +42,11 @@
 ---
 
 # 🇺🇸 English Manual
+
+<p align="center">
+  <a href="https://ko-fi.com/suzutaku" target="_blank"><img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="Support on Ko-fi" height="40"></a>
+  <a href="https://buymeacoffee.com/suzutaku" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="40"></a>
+</p>
 
 **Cross-Platform Serverless Online Leaderboard for Godot 4 & Unity with ZERO Server Maintenance Costs!**
 
