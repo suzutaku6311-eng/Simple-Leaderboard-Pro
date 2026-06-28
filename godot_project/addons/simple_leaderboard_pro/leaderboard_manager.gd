@@ -52,7 +52,8 @@ func fetch_leaderboard(period: String = "all", limit: int = 50) -> void:
 
 func _on_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
 	if result != HTTPRequest.RESULT_SUCCESS:
-		emit_signal("score_submitted", false, "Network error.")
+		emit_signal("leaderboard_loaded", "all", [])
+		emit_signal("score_submitted", false, "Network error (Offline Demo Mode)")
 		return
 
 	var response_str = body.get_string_from_utf8()

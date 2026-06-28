@@ -1,6 +1,6 @@
 extends Control
 
-@onready var manager: LeaderboardManager = $LeaderboardManager
+@onready var manager: Node = $LeaderboardManager
 @onready var main_panel: PanelContainer = $CenterContainer/MainPanel
 @onready var tab_today: Button = $CenterContainer/MainPanel/VBox/Tabs/BtnToday
 @onready var tab_weekly: Button = $CenterContainer/MainPanel/VBox/Tabs/BtnWeekly
@@ -92,10 +92,18 @@ func _on_leaderboard_loaded(period: String, data: Array) -> void:
 	for child in list_container.get_children():
 		child.queue_free()
 		
+	# 通信未設定・オフライン時のプレビュー／テスト用デモランキング
 	if data.is_empty():
-		status_label.text = "No scores yet! Be the first challenger!"
+		status_label.text = "💡 Offline Preview Mode (Demo Data)"
+		status_label.modulate = Color(1.0, 0.8, 0.2, 0.9)
 		status_label.show()
-		return
+		data = [
+			{"rank": 1, "player_name": "Hero_Taro", "score": 99990},
+			{"rank": 2, "player_name": "CyberNinja", "score": 85400},
+			{"rank": 3, "player_name": "GodotMaster", "score": 72100},
+			{"rank": 4, "player_name": "Alice_Gamer", "score": 64000},
+			{"rank": 5, "player_name": "Bob_Speedrun", "score": 51200}
+		]
 		
 	for item in data:
 		var rank_node = RANK_ITEM_SCENE.instantiate()
