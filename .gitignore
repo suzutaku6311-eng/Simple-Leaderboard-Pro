@@ -1,0 +1,57 @@
+# =========================
+# OS Generated Files
+# =========================
+.DS_Store
+.DS_Store?
+*~
+._*
+Thumbs.db
+ehthumbs.db
+
+# =========================
+# Backend (Cloudflare Workers / Node.js)
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.wrangler/
+dist/
+build/
+.env
+.env.*
+!.env.example
+
+# =========================
+# Godot 4
+# =========================
+.godot/
+export_presets.cfg
+*.translation
+
+# =========================
+# Unity
+# =========================
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+
+# Visual Studio / Rider / IDE project files
+*.csproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db

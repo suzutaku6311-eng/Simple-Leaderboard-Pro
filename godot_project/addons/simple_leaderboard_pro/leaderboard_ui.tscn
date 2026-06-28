@@ -1,0 +1,178 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://addons/simple_leaderboard_pro/leaderboard_ui.gd" id="1_script"]
+[ext_resource type="Script" path="res://addons/simple_leaderboard_pro/leaderboard_manager.gd" id="2_manager"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_main"]
+bg_color = Color(0.16, 0.12, 0.26, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.85, 0.3, 1)
+border_blend = true
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_left = 24
+corner_radius_bottom_right = 24
+content_margin_left = 28
+content_margin_top = 24
+content_margin_right = 28
+content_margin_bottom = 24
+shadow_color = Color(0.95, 0.6, 0.1, 0.35)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tab"]
+bg_color = Color(0.3, 0.2, 0.45, 1)
+border_width_bottom = 4
+border_color = Color(0.5, 0.35, 0.7, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_left = 12
+corner_radius_bottom_right = 12
+content_margin_left = 12
+content_margin_right = 12
+content_margin_top = 8
+content_margin_bottom = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_submit"]
+bg_color = Color(1, 0.8, 0.1, 1)
+border_width_bottom = 4
+border_color = Color(0.8, 0.5, 0.0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_left = 12
+corner_radius_bottom_right = 12
+content_margin_left = 16
+content_margin_right = 16
+content_margin_top = 8
+content_margin_bottom = 8
+
+[node name="LeaderboardUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="LeaderboardManager" type="Node" parent="."]
+script = ExtResource("2_manager")
+api_url = "http://localhost:8787"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.8)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainPanel" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(580, 620)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_main")
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer/MainPanel"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Header" type="HBoxContainer" parent="CenterContainer/MainPanel/VBox"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/MainPanel/VBox/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.9, 0.2, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5)
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 28
+text = "🏆 LEADERBOARD 🏆"
+horizontal_alignment = 1
+
+[node name="BtnClose" type="Button" parent="CenterContainer/MainPanel/VBox/Header"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "✖"
+
+[node name="Tabs" type="HBoxContainer" parent="CenterContainer/MainPanel/VBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="BtnToday" type="Button" parent="CenterContainer/MainPanel/VBox/Tabs"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_tab")
+text = "TODAY"
+
+[node name="BtnWeekly" type="Button" parent="CenterContainer/MainPanel/VBox/Tabs"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_tab")
+text = "WEEKLY"
+
+[node name="BtnMonthly" type="Button" parent="CenterContainer/MainPanel/VBox/Tabs"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_tab")
+text = "MONTHLY"
+
+[node name="BtnAll" type="Button" parent="CenterContainer/MainPanel/VBox/Tabs"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_tab")
+text = "ALL-TIME"
+
+[node name="StatusLabel" type="Label" parent="CenterContainer/MainPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.8)
+theme_override_font_sizes/font_size = 16
+text = "Loading..."
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/MainPanel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ListContainer" type="VBoxContainer" parent="CenterContainer/MainPanel/VBox/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="SubmitBox" type="HBoxContainer" parent="CenterContainer/MainPanel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="InputName" type="LineEdit" parent="CenterContainer/MainPanel/VBox/SubmitBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Player Name"
+max_length = 16
+
+[node name="InputScore" type="SpinBox" parent="CenterContainer/MainPanel/VBox/SubmitBox"]
+layout_mode = 2
+max_value = 9999999.0
+value = 1000.0
+
+[node name="BtnSubmit" type="Button" parent="CenterContainer/MainPanel/VBox/SubmitBox"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.1, 0.0, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_submit")
+text = "SUBMIT!"

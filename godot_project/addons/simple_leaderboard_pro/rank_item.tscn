@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/simple_leaderboard_pro/rank_item.gd" id="1_script"]
+
+[node name="RankItem" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 48)
+offset_right = 400.0
+offset_bottom = 48.0
+script = ExtResource("1_script")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="RankLabel" type="Label" parent="HBox"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "1"
+horizontal_alignment = 1
+
+[node name="NameLabel" type="Label" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "PlayerName"
+text_overrun_behavior = 3
+
+[node name="ScoreLabel" type="Label" parent="HBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "99999"
+horizontal_alignment = 2

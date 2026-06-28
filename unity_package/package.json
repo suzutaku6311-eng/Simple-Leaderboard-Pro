@@ -1,0 +1,16 @@
+{
+  "name": "com.antigravity.simpleleaderboardpro",
+  "version": "1.0.0",
+  "displayName": "Simple Leaderboard Pro",
+  "description": "Plug and play cross-platform online leaderboard with rich pop-style UI for Unity.",
+  "unity": "2021.3",
+  "keywords": [
+    "leaderboard",
+    "ranking",
+    "ui",
+    "cloudflare"
+  ],
+  "author": {
+    "name": "Antigravity"
+  }
+}

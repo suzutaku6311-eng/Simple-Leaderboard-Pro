@@ -1,0 +1,24 @@
+{
+  "name": "simple-leaderboard-pro-backend",
+  "version": "1.0.0",
+  "description": "Ultra-lightweight Serverless Leaderboard Backend for Godot & Unity",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:init": "wrangler d1 execute leaderboard_db --local --file=./schema.sql",
+    "db:init:prod": "wrangler d1 execute leaderboard_db --remote --file=./schema.sql"
+  },
+  "keywords": [
+    "leaderboard",
+    "godot",
+    "unity",
+    "cloudflare-workers",
+    "d1"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}
